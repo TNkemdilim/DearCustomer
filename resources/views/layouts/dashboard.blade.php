@@ -94,7 +94,7 @@
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
-                                
+
                                 <a class="dropdown-item" href="{{ route('logout') }}" 
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
@@ -126,29 +126,29 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li>
-                            <a href="index.html" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
+                            <a href="{{ route('dashboard')}}" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="pages-profile.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
+                            <a href="pages-profile.html" class="waves-effect"><i class="fa fa-envelope-o m-r-10" aria-hidden="true"></i>Sent Mails</a>
                         </li>
                         <li>
-                            <a href="table-basic.html" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Basic Table</a>
+                            <a href="table-basic.html" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Custom Messages</a>
                         </li>
                         <li>
-                            <a href="icon-fontawesome.html" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Icons</a>
+                            <a href="icon-fontawesome.html" class="waves-effect"><i class="fa fa-users m-r-10" aria-hidden="true"></i>Subscribers</a>
                         </li>
                         <li>
-                            <a href="map-google.html" class="waves-effect"><i class="fa fa-globe m-r-10" aria-hidden="true"></i>Google Map</a>
+                            <a href="map-google.html" class="waves-effect"><i class="fa fa-calendar-times-o m-r-10" aria-hidden="true"></i>Mail Scheculer</a>
                         </li>
                         <li>
-                            <a href="pages-blank.html" class="waves-effect"><i class="fa fa-columns m-r-10" aria-hidden="true"></i>Blank Page</a>
+                            <a href="pages-blank.html" class="waves-effect"><i class="fa fa-bar-chart m-r-10" aria-hidden="true"></i>Analytics</a>
                         </li>
                         <li>
-                            <a href="pages-error-404.html" class="waves-effect"><i class="fa fa-info-circle m-r-10" aria-hidden="true"></i>Error 404</a>
+                            <a href="pages-error-404.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">
-                        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn btn-danger"> Upgrade to Pro</a>
+                        <a href="https://wrappixel.com/templates/monsteradmin/" class="btn btn-danger"> Upgrade Account</a>
                     </div>
                 </nav>
                 <!-- End Sidebar navigation -->

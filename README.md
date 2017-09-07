@@ -2,6 +2,17 @@
 
 DearCustomer is a platform that simplifies the process to easily mail customers in business.
 
+
+## Sample shortcut code
+```HTML
+
+<form action="https://www.dearcustomer.com/user/<id>/subscribe">
+  <input type="email" name="email" placeholder="Sign up to our newsletter">
+  <button type="submit">Subscribe</button>
+</form>
+
+```
+
 # Setting Up
 
 ## Dev Setup

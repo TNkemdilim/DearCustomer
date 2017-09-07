@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class GroupLog extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+      'name'
+    ];
+
+    public function logs()
+    {
+        return $this->hasMany('App\SingleLog');
+    }
+
+    public function company()
+    {
+        return $this->hasMany('App\SingleLog');
+    }
 }

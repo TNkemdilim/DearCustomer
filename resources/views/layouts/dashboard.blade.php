@@ -129,22 +129,22 @@
                             <a href="{{ route('dashboard')}}" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="pages-profile.html" class="waves-effect"><i class="fa fa-envelope-o m-r-10" aria-hidden="true"></i>Sent Mails</a>
+                            <a href="{{ route('sent_mails') }}" class="waves-effect"><i class="fa fa-envelope-o m-r-10" aria-hidden="true"></i>Sent Mails</a>
                         </li>
                         <li>
-                            <a href="table-basic.html" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Custom Messages</a>
+                            <a href="{{ route('custom_messages') }}" class="waves-effect"><i class="fa fa-table m-r-10" aria-hidden="true"></i>Custom Messages</a>
                         </li>
                         <li>
-                            <a href="icon-fontawesome.html" class="waves-effect"><i class="fa fa-users m-r-10" aria-hidden="true"></i>Subscribers</a>
+                            <a href="{{ route('subscribers') }}" class="waves-effect"><i class="fa fa-users m-r-10" aria-hidden="true"></i>Subscribers</a>
                         </li>
                         <li>
-                            <a href="map-google.html" class="waves-effect"><i class="fa fa-calendar-times-o m-r-10" aria-hidden="true"></i>Mail Scheculer</a>
+                            <a href="{{ route('mail_scheduler') }}" class="waves-effect"><i class="fa fa-calendar-times-o m-r-10" aria-hidden="true"></i>Mail Scheculer</a>
                         </li>
                         <li>
-                            <a href="pages-blank.html" class="waves-effect"><i class="fa fa-bar-chart m-r-10" aria-hidden="true"></i>Analytics</a>
+                            <a href="{{ route('analytics') }}" class="waves-effect"><i class="fa fa-bar-chart m-r-10" aria-hidden="true"></i>Analytics</a>
                         </li>
                         <li>
-                            <a href="pages-error-404.html" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
+                            <a href="{{ route('profile') }}" class="waves-effect"><i class="fa fa-user m-r-10" aria-hidden="true"></i>Profile</a>
                         </li>
                     </ul>
                     <div class="text-center m-t-30">

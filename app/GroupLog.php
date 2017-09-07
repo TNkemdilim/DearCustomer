@@ -19,9 +19,4 @@ class GroupLog extends Model
     {
         return $this->hasMany('App\SingleLog');
     }
-
-    public function company()
-    {
-        return $this->hasMany('App\SingleLog');
-    }
 }

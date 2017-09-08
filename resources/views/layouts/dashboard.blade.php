@@ -206,7 +206,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                © 2017 Monster Admin by wrappixel.com
+                © 2017 DearCustomer Inc.
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

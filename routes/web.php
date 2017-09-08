@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+/**
+ * Dashboard routes
+ * 
+ */
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('/dashboard/sent-mails', 'DashboardController@sent_mails')->name('sent_mails');

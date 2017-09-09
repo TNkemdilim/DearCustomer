@@ -10,9 +10,18 @@
                 <select class="custom-select pull-right">
                     <option selected>All Companies</option>
 
-                    <option value="1">February</option>
-                    <option value="2">March</option>
-                    <option value="3">April</option>
+
+                    @php
+
+                    $companies = App\Company::all();
+
+                    @endphp
+
+                    @foreach ($company in $companies)
+
+                    <option value="{{ $loop->index }}">{{ $company->name }}</option>
+
+                    @endforeach
                 </select>
                 <h4 class="card-title">All Subscribers</h4>
                 <div class="table-responsive m-t-40">

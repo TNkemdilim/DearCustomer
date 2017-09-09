@@ -9,6 +9,7 @@
             <div class="card-block">
                 <select class="custom-select pull-right">
                     <option selected>All Companies</option>
+
                     <option value="1">February</option>
                     <option value="2">March</option>
                     <option value="3">April</option>
@@ -25,19 +26,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 0; $i < 10; $i++)
-                            <tr>
-                                <td style="width:50px;"><span class="round">S</span></td>
-                                <td>
-                                    <h6>Sunil Joshi</h6><small class="text-muted">Web Designer</small></td>
-                                <td>company name</td>
-                                <td>
-                                  @php
-                                    $anytime = Carbon\Carbon::now();
-                                    echo $anytime->toFormattedDateString();
-                                  @endphp
-                                </td>
-                            </tr>
+
+                            @php
+
+                            $subscribers = App\Customer::all();
+
+                            @endphp
+
+                            @foreach ($subscriber in $subscribers)
+
+                              <tr>
+                                  <td style="width:50px;"><span class="round">{{ array($subscriber->firstname)[0] }}</span></td>
+                                  <td>
+                                      <h6>{{ $subscriber->firstname . ' ' . $subscriber->lastname}}</h6><small class="text-muted">Subscriber</small></td>
+                                  <td>{{ $subscriber->company()->get()->name }}</td>
+                                  <td>
+                                      {{ $subscriber->date_created }}
+                                      {{-- $anytime = Carbon\Carbon::now();
+                                      echo $anytime->toFormattedDateString(); --}}
+                                  </td>
+                              </tr>
                             
                             @endfor
 

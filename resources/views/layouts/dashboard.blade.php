@@ -87,7 +87,7 @@
                     <!-- ============================================================== -->
                     <ul class="navbar-nav my-lg-0">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{URL::asset('images/users/1.jpg')}}" alt="user" class="profile-pic m-r-5" />Markarn Doe</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{URL::asset('images/users/1.jpg')}}" alt="user" class="profile-pic m-r-5" />{{ Auth::user()->firstname . Auth::user()->lastname}}</a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="#">Action</a>

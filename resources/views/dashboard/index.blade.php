@@ -2,6 +2,11 @@
 
 @section('content')
 
+@php
+    $user = App\User::where('id', Auth::user()->id)->get()->first();
+@endphp
+
+
 <!-- Row -->
 <div class="row">
     <!-- Column -->
@@ -10,7 +15,12 @@
             <div class="card-block">
                 <h4 class="card-title">No. of Companies</h4>
                 <div class="text-right">
-                    <h2 class="font-light m-b-0">{{-- <i class="ti-arrow-up text-success"></i> --}}  1 / <a class="text-danger">5</a></h2>
+                    <h2 class="font-light m-b-0">
+                      {{-- <i class="ti-arrow-up text-success"></i> --}}  
+                      {{-- 1 /  --}}
+                        
+                      <a class="text-danger"> {{ $user->companies()->count() }}</a>
+                    </h2>
                     {{-- <span class="text-muted">Todays companies created</span> --}}
                 </div>
                 <span class="text-success">80%</span>
@@ -28,7 +38,20 @@
             <div class="card-block">
                 <h4 class="card-title">Total Subscribers</h4>
                 <div class="text-right">
-                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> 120</h2>
+                    <h2 class="font-light m-b-0">
+                      <i class="ti-arrow-up text-success"></i>
+                      @php
+                      $total_subscribers = 0;
+
+                      $user_companies = $user->companies()->get();
+
+                      foreach ($user_companies as $user_company) {
+                          $total_subscribers += $user_company->count();
+                      }
+
+                      echo "{$total_subscribers}";
+                      @endphp
+                    </h2>
                     {{-- <span class="text-muted">Todays Income</span> --}}
                 </div>
                 <span class="text-success">80%</span>

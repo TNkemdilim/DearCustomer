@@ -27,6 +27,7 @@ class CreateCompaniesTable extends Migration
 
             //foreign keys
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('id')->references('company_id')->on('customers');
         });
     }
 

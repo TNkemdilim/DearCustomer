@@ -20,6 +20,11 @@ class Company extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function subscribers()
+    {
+        return $this->hasMany('App\Customer');
+    }
+
     public function logs()
     {
         return $this->hasManyThrough('App\SingleLog', 'App\Customer', 'company_id', 'customer_id', 'id');

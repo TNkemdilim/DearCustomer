@@ -17,9 +17,9 @@
 
                     @endphp
 
-                    @foreach ($company in $companies)
+                    @foreach ($companies as $company)
 
-                    <option value="{{ $loop->index }}">{{ $company->name }}</option>
+                    <option value="{{ $loop->index }}">{{ $company->name}}</option>
 
                     @endforeach
                 </select>
@@ -42,13 +42,13 @@
 
                             @endphp
 
-                            @foreach ($subscriber in $subscribers)
+                            @foreach ($subscribers as $subscriber)
 
                               <tr>
-                                  <td style="width:50px;"><span class="round">{{ array($subscriber->firstname)[0] }}</span></td>
+                                  <td style="width:50px;"><span class="round">{{ substr($subscriber->firstname, 0)[0] }}</span></td>
                                   <td>
                                       <h6>{{ $subscriber->firstname . ' ' . $subscriber->lastname}}</h6><small class="text-muted">Subscriber</small></td>
-                                  <td>{{ $subscriber->company()->get()->name }}</td>
+                                  <td>{{ $subscriber->company()->get()->first()->name }}</td>
                                   <td>
                                       {{ $subscriber->date_created }}
                                       {{-- $anytime = Carbon\Carbon::now();
@@ -56,7 +56,7 @@
                                   </td>
                               </tr>
                             
-                            @endfor
+                            @endforeach
 
                         </tbody>
                     </table>

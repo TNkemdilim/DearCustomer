@@ -15,7 +15,7 @@ class CreateCustomMessagesTable extends Migration
     {
         Schema::create('custom_messages', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('text');
+            $table->longText('text');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 

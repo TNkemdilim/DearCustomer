@@ -19,5 +19,6 @@ $factory->define(App\CustomMessage::class, function (Faker $faker) {
     return [
         'user_id' => function() { return factory(App\User::class)->id; },
         'text' => $faker->randomHtml(2,6),
+        'title' => $faker->catchPhrase,
     ];
 });

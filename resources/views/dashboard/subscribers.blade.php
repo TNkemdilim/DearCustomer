@@ -28,10 +28,13 @@
                     <table class="table stylish-table">
                         <thead>
                             <tr>
-                                <th colspan="1">Picture</th>
+                                <th colspan="1">
+                                  <input type="checkbox" onclick="CheckAllSubscribers(this.checked);" name=""> All
+                                </th>
+                                <th>Picture</th>
                                 <th>Name</th>
                                 <th>Company</th>
-                                <th>Date Subscribed</th>
+                                <th>Date and Time Subscribed</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,12 +48,16 @@
                             @foreach ($subscribers as $subscriber)
 
                               <tr>
-                                  <td style="width:50px;"><span class="round">{{ substr($subscriber->firstname, 0)[0] }}</span></td>
+                                  <td><input type="checkbox" name="" class="check-subscribers"></td>
+                                  <td><span class="round">{{ substr($subscriber->firstname, 0)[0] }}</span></td>
                                   <td>
-                                      <h6>{{ $subscriber->firstname . ' ' . $subscriber->lastname}}</h6><small class="text-muted">Subscriber</small></td>
+                                      <h6>{{ $subscriber->firstname . ' ' . $subscriber->lastname}}</h6>
+
+                                      <small class="text-muted">Subscriber</small>
+                                  </td>
                                   <td>{{ $subscriber->company()->get()->first()->name }}</td>
                                   <td>
-                                      {{ $subscriber->date_created }}
+                                      {{ $subscriber->created_at }}
                                       {{-- $anytime = Carbon\Carbon::now();
                                       echo $anytime->toFormattedDateString(); --}}
                                   </td>
@@ -66,5 +73,19 @@
     </div>
 </div>
 <!-- Row -->
+
+@endsection
+
+
+@section('scripts')
+
+<script type="text/javascript">
+  function CheckAllSubscribers(value) {
+      $('input:checkbox.check-subscribers').each(function (chk) {
+          this.checked = value;
+      });
+      //console.log($('input:checkbox.check-subscribers'));
+    }  
+</script>
 
 @endsection

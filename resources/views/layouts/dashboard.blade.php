@@ -247,6 +247,9 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="{{URL::asset('plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
+
+    @yield('scripts')
+    
 </body>
 
 </html>

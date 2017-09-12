@@ -22,6 +22,9 @@
         <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
         <!-- You can change the theme colors from here -->
         <link href="{{URL::asset('css/colors/blue.css')}}" id="theme" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ URL::asset('css/kc.fab.css') }}">
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -153,6 +156,11 @@
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
+
+            <div class="kc_fab_wrapper">
+            
+            </div>
+
             <!-- End Sidebar scroll-->
         </aside>
         <!-- ============================================================== -->
@@ -248,8 +256,22 @@
     <!-- ============================================================== -->
     <script src="{{URL::asset('plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
+    <script src="{{URL::asset('js/kc.fab.min.js') }}"></script>
+
     @yield('scripts')
     
+
+    <script type="text/javascript">
+      
+      var links = [
+        {
+          "bgcolor":"#F62D51",
+          "icon":"+"
+        }
+      ]
+
+      $('.kc_fab_wrapper').kc_fab(links);
+    </script>
 </body>
 
 </html>

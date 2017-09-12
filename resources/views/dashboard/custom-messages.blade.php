@@ -13,7 +13,7 @@
 
     @foreach($custom_messages as $custom_message)
     <!-- Column -->
-    
+
     <div class="col-lg-3">
         <div class="card">
             <img class="card-img-top img-responsive" src="{{URL::asset('images/big/img1.jpg')}}" alt="Card">

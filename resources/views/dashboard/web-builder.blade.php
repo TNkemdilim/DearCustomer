@@ -15,7 +15,10 @@
   }
 </style>
 
+
+
 @section('script')
+
 {{-- GrapesJS --}}
 <link rel="stylesheet" href="{{ URL::asset('css/grapes.min.css') }}">
 <script src="{{ URL::asset('js/grapes.min.js') }}"></script>
@@ -32,6 +35,3 @@
 </script>
 
 @endsection
-
-</body>
-</html>

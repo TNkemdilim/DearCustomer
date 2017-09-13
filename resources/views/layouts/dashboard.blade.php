@@ -262,16 +262,30 @@
     
 
     <script type="text/javascript">
-      
       var links = [
         {
+          "icon":"+",
+          "title":"Compose new mail",
           "bgcolor":"#F62D51",
-          "icon":"+"
+          "mousedown":"hello()"
+        },
+        {
+          "icon":"<i class='fa fa-google-plus'></i>",
+          "mouseDown": "hello()",
+          "title":"compose"
         }
-      ]
+      ];
 
       $('.kc_fab_wrapper').kc_fab(links);
+
     </script>
+
+    <style type="text/css">
+      #passport {
+        background-color: green;
+        color: green !important;
+      }
+    </style>
 </body>
 
 </html>

@@ -106,6 +106,10 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                        @php
+
+                        @endphp
                             @for ($i = 0; $i < 10; $i++)
                             <tr class="active">
                                 <td style="width:50px;"><span class="round">S</span></td>

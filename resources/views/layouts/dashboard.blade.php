@@ -25,12 +25,15 @@
 
         <link rel="stylesheet" href="{{ URL::asset('css/kc.fab.css') }}">
 
+        <link rel="stylesheet" href="{{ URL::asset('css/grapes.min.css') }}">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
+
+        @yield('css')
 </head>
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
@@ -157,7 +160,7 @@
                 <!-- End Sidebar navigation -->
             </div>
 
-            <div class="kc_fab_wrapper">
+            <div class="kc_fab_wrapper fab">
             
             </div>
 
@@ -201,6 +204,8 @@
                 <!-- ============================================================== -->
                 
                 @yield('content')
+
+
 
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -257,35 +262,108 @@
     <script src="{{URL::asset('plugins/styleswitcher/jQuery.style.switcher.js')}}"></script>
 
     <script src="{{URL::asset('js/kc.fab.min.js') }}"></script>
+    <script src="{{ URL::asset('js/grapes.min.js') }}"></script>
 
     @yield('scripts')
     
 
+    <style type="text/css">
+      .modal-dialog { width: 100%; height: 100%; padding: 0; margin:0; max-width: 100%; }
+      .modal-content { height: 100%; border-radius: 0; color:white; overflow:auto; }
+
+      #gjs {
+        padding: 0px;
+        margin: 0px;
+      }
+
+      #compose-message-modal {
+        margin: 0px !important;
+        padding: 0px !important;
+      }
+    </style>
+
+    @php
+        $user = App\User::where('id', Auth::user()->id)->get()->first();
+
+        $custom_messages = $user->custom_messages()->first();
+    @endphp
+
+
+    <div class="modal fade" id="compose-message-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body" id="gjs">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              
+
+
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
     <script type="text/javascript">
-      var links = [
+    var element = document.querySelector('button[data-link-title="compose"]');
+
+
+    $(document).on('click', '.kc_fab_main_btn', function () {
+      $('#compose-message-modal').modal({
+        show: true,
+        backdrop: 'static',
+        focus: true,
+        keyboard: false
+      });
+      
+      //initialize grapesjs
+      var editor = grapesjs.init({
+          container : '#gjs',
+          components: "<div>hello world</div>",
+          style: '.txt-red{color: red}',
+
+          panels: {
+                sidebar: [{
+                    id: 'commands',
+                    buttons : [{
+                                id          : 'smile',
+                                className   : 'fa fa-smile-o',
+                                attributes  : { title: 'Smile' },
+                                command     : 'helloWorld',
+                            }],
+                }],
+
+          },
+
+          storageManager: {
+                id: 'gjs-',             // Prefix identifier that will be used inside storing and loading
+                type: 'local',          // Type of the storage
+                autosave: true,         // Store data automatically
+                autoload: true,         // Autoload stored data on init
+                stepsBeforeSave: 1,     // If autosave enabled, indicates how many changes are necessary before store method is triggered
+                storeComponents: false, // Enable/Disable storing of components in JSON format
+                storeStyles: false,     // Enable/Disable storing of rules/style in JSON format
+                storeHtml: true,        // Enable/Disable storing of components as HTML string
+                storeCss: true,         // Enable/Disable storing of rules/style as CSS string
+              }
+      });
+    });
+
+
+    var links = [
         {
           "icon":"+",
           "title":"Compose new mail",
-          "bgcolor":"#F62D51",
-          "mousedown":"hello()"
-        },
-        {
-          "icon":"<i class='fa fa-google-plus'></i>",
-          "mouseDown": "hello()",
-          "title":"compose"
+          "bgcolor":"#F62D51"
         }
-      ];
+    ];
 
-      $('.kc_fab_wrapper').kc_fab(links);
+    $('.kc_fab_wrapper').kc_fab(links);
 
     </script>
-
-    <style type="text/css">
-      #passport {
-        background-color: green;
-        color: green !important;
-      }
-    </style>
 </body>
 
 </html>

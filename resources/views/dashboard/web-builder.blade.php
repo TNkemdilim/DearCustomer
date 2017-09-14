@@ -1,5 +1,9 @@
 {{-- <script src="{{URL::asset('plugins/jquery/jquery.min.js')}}"></script> --}}
 
+@extends('layouts.dashboard-web-builder')
+
+@section('content')
+
 <div id="gjs"></div>
 
 @php
@@ -15,23 +19,27 @@
   }
 </style>
 
+@section('css')
+<link rel="stylesheet" href="{{ URL::asset('css/grapes.min.css') }}">
+@endsection
 
-
-@section('script')
+@section('scripts')
 
 {{-- GrapesJS --}}
-<link rel="stylesheet" href="{{ URL::asset('css/grapes.min.css') }}">
+
 <script src="{{ URL::asset('js/grapes.min.js') }}"></script>
 
 <script type="text/javascript">
 
   var editor = grapesjs.init({
       container : '#gjs',
-      components: "<div>hello world</div>" ,
+      components: "<div>hello world</div>",
       style: '.txt-red{color: red}',
   });
 
 {{-- End GrapesJS --}}
 </script>
+
+@endsection
 
 @endsection
